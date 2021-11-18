@@ -1,5 +1,6 @@
 package com.qaprosoft.carina.demo.mobile.gui.pages.android;
 
+import com.mongodb.util.TimeConstants;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -31,6 +32,10 @@ public class LoginPage extends LoginPageBase implements IMobileUtils {
 
     @FindBy(id = "login_button")
     private ExtendedWebElement loginBtn;
+
+    @FindBy(xpath = "//*[contains(@text, '%s')]")
+    private ExtendedWebElement itemByText;
+
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -77,6 +82,16 @@ public class LoginPage extends LoginPageBase implements IMobileUtils {
         selectMaleSex();
         checkPrivacyPolicyCheckbox();
         return clickLoginBtn();
+    }
+
+    @Override
+    public boolean isNamePresent() {
+        return false;
+    }
+
+    @Override
+    public boolean isItemByTextPresent(String text) {
+        return itemByText.format(text).isElementPresent();
     }
 
 }

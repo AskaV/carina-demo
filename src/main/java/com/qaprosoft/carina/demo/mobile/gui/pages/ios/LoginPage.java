@@ -85,4 +85,14 @@ public class LoginPage extends LoginPageBase {
 		return clickLoginBtn();
 	}
 
+	@Override
+	public boolean isNamePresent() {
+		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	}
+
+	@Override
+	public boolean isItemByTextPresent(String text) {
+		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	}
+
 }
