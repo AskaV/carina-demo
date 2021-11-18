@@ -91,6 +91,41 @@ public class LoginPage extends LoginPageBase {
 	}
 
 	@Override
+	public boolean isPasswordPresent() {
+		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	}
+
+	@Override
+	public boolean isMalePresent() {
+		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	}
+
+	@Override
+	public boolean isFemalePresent() {
+		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	}
+
+	@Override
+	public boolean isMaleChecked() {
+		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	}
+
+	@Override
+	public boolean isFemaleChecked() {
+		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	}
+
+	@Override
+	public boolean isMaleCheckboxChesked() {
+		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	}
+
+	@Override
+	public boolean isSwitchSelected() {
+		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	}
+
+	@Override
 	public boolean isItemByTextPresent(String text) {
 		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
 	}

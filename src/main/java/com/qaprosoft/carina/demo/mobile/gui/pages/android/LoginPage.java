@@ -1,6 +1,5 @@
 package com.qaprosoft.carina.demo.mobile.gui.pages.android;
 
-import com.mongodb.util.TimeConstants;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -86,7 +85,42 @@ public class LoginPage extends LoginPageBase implements IMobileUtils {
 
     @Override
     public boolean isNamePresent() {
-        return false;
+        return nameInputField.isElementPresent();
+    }
+
+    @Override
+    public boolean isPasswordPresent() {
+        return passwordInputField.isElementPresent();
+    }
+
+    @Override
+    public boolean isMalePresent() {
+        return maleRadioBtn.isElementPresent();
+    }
+
+    @Override
+    public boolean isFemalePresent() {
+        return femaleRadioBtn.isElementPresent();
+    }
+
+    @Override
+    public boolean isMaleChecked() {
+        return maleRadioBtn.isChecked();
+    }
+
+    @Override
+    public boolean isFemaleChecked() {
+        return femaleRadioBtn.isChecked();
+    }
+
+    @Override
+    public boolean isMaleCheckboxChesked() {
+        return maleRadioBtn.isChecked();
+    }
+
+    @Override
+    public boolean isSwitchSelected() {
+        throw new UnsupportedOperationException("This method isn't implemented for android LoginPage");
     }
 
     @Override
