@@ -49,14 +49,6 @@ public class MyMobileTest implements IAbstractTest, IMobileUtils {
         WebViewPageBase webViewPage = initPage(getDriver(), WebViewPage.class);
         Assert.assertTrue(webViewPage.isPageOpened(), "Web View Page page isn't opened");
 
-
-//        Verify Sign Up btn isnt aciteve
-//        Step
-//        1 - on welcome page click Next btn
-//        2 - type name, password
-//        3 - chose sex
-//        Expected result:
-//        Sign Up btn isn't active
     }
 
 }
