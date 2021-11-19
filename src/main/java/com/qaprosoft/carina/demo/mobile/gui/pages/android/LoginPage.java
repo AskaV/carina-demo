@@ -111,11 +111,6 @@ public class LoginPage extends LoginPageBase implements IMobileUtils {
 
 
     @Override
-    public boolean isMaleCheckboxChesked() {
-        return maleRadioBtn.isChecked();
-    }
-
-    @Override
     public boolean isPrivacyPolicyCheckboxChecked() {
         throw new UnsupportedOperationException("This method isn't implemented for android LoginPage");
     }

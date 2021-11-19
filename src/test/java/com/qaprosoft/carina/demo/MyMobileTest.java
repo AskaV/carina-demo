@@ -40,7 +40,7 @@ public class MyMobileTest implements IAbstractTest, IMobileUtils {
         Assert.assertTrue(loginPage.isItemByTextPresent(password),"The field Password is not checked");
         //Step 4
         loginPage.selectMaleSex();
-        Assert.assertTrue(loginPage.isMaleCheckboxChesked(),"Male cheskbox is not typed");
+        Assert.assertTrue(loginPage.isSexChecked("Male"),"Male cheskbox is not typed");
         //Step 5
         loginPage.checkPrivacyPolicyCheckbox();
         Assert.assertTrue(loginPage.isPrivacyPolicyCheckboxChecked(),"Privacy Policy switch not selected");
@@ -49,6 +49,14 @@ public class MyMobileTest implements IAbstractTest, IMobileUtils {
         WebViewPageBase webViewPage = initPage(getDriver(), WebViewPage.class);
         Assert.assertTrue(webViewPage.isPageOpened(), "Web View Page page isn't opened");
 
+
+//        Verify Sign Up btn isnt aciteve
+//        Step
+//        1 - on welcome page click Next btn
+//        2 - type name, password
+//        3 - chose sex
+//        Expected result:
+//        Sign Up btn isn't active
     }
 
 }

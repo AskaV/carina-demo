@@ -105,10 +105,6 @@ public class LoginPage extends LoginPageBase {
 		throw new UnsupportedOperationException("This method isn't implement for ios LoginPage");
 	}
 
-	@Override
-	public boolean isMaleCheckboxChesked() {
-		throw new UnsupportedOperationException("This method isn't implement for ios LoginPage");
-	}
 
 	@Override
 	public boolean isPrivacyPolicyCheckboxChecked() {
