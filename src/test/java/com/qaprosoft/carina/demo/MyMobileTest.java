@@ -24,37 +24,14 @@ public class MyMobileTest implements IAbstractTest, IMobileUtils {
         String password = RandomStringUtils.randomAlphabetic(10);
         //Step 1
         WelcomePageBase welcomePage = initPage(getDriver(), WelcomePageBase.class);
-        Assert.assertTrue(welcomePage.isPageOpened(), "Welcome page isn't opened");
         LoginPageBase loginPage = welcomePage.clickNextBtn();
         //Step 2
-        Assert.assertTrue(loginPage.isNamePresent(), "Name field isn't present");
-        Assert.assertTrue(loginPage.isPasswordPresent(), "Password field isn't present");
-        Assert.assertTrue(loginPage.isSexPresent("Male"), "Male checkbox isn't present");
-        Assert.assertTrue(loginPage.isSexPresent("Female"), "Female checkbox isn't present");
-        Assert.assertFalse(loginPage.isSexChecked("Male"), "Female checkbox is checked");
-        Assert.assertFalse(loginPage.isSexChecked("Female"), "Female checkbox isn't checked");
-        //Step 3
         loginPage.typeName(username);
         loginPage.typePassword(password);
-        Assert.assertTrue(loginPage.isItemByTextPresent(username),"The field Name is not checked");
-        Assert.assertTrue(loginPage.isItemByTextPresent(password),"The field Password is not checked");
-        //Step 4
+        //Step 3
         loginPage.selectMaleSex();
-        Assert.assertTrue(loginPage.isSexChecked("Male"),"Male cheskbox is not typed");
-        //Step 5
-        loginPage.checkPrivacyPolicyCheckbox();
-        Assert.assertTrue(loginPage.isPrivacyPolicyCheckboxChecked(),"Privacy Policy switch not selected");
-        //Step 6
-        CarinaDescriptionPageBase carinaDescriptionPage = loginPage.clickLoginBtn();
-        WebViewPageBase webViewPage = initPage(getDriver(), WebViewPage.class);
-        Assert.assertTrue(webViewPage.isPageOpened(), "Web View Page page isn't opened");
 
 
-//        Verify Sign Up btn isnt aciteve
-//        Step
-//        1 - on welcome page click Next btn
-//        2 - type name, password
-//        3 - chose sex
 //        Expected result:
 //        Sign Up btn isn't active
     }
