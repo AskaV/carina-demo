@@ -28,17 +28,13 @@ public abstract class LoginPageBase extends AbstractPage {
 
 	public abstract boolean isPasswordPresent();
 
-	public abstract boolean isMalePresent();
+	public abstract boolean isSexPresent(String sex);
 
-	public abstract boolean isFemalePresent();
-
-	public abstract boolean isMaleChecked();
-
-	public abstract boolean isFemaleChecked();
+	public abstract boolean isSexChecked(String sex);
 
 	public abstract boolean isMaleCheckboxChesked();
 
-	public abstract boolean isSwitchSelected();
+	public abstract boolean isPrivacyPolicyCheckboxChecked();
 
 	public abstract boolean isItemByTextPresent(String text);
 

@@ -87,47 +87,37 @@ public class LoginPage extends LoginPageBase {
 
 	@Override
 	public boolean isNamePresent() {
-		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+		throw new UnsupportedOperationException("This method isn't implement for ios LoginPage");
 	}
 
 	@Override
 	public boolean isPasswordPresent() {
-		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+		throw new UnsupportedOperationException("This method isn't implement for ios LoginPage");
 	}
 
 	@Override
-	public boolean isMalePresent() {
-		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	public boolean isSexPresent(String sex) {
+		throw new UnsupportedOperationException("This method isn't implement for ios LoginPage");
 	}
 
 	@Override
-	public boolean isFemalePresent() {
-		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
-	}
-
-	@Override
-	public boolean isMaleChecked() {
-		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
-	}
-
-	@Override
-	public boolean isFemaleChecked() {
-		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	public boolean isSexChecked(String sex) {
+		throw new UnsupportedOperationException("This method isn't implement for ios LoginPage");
 	}
 
 	@Override
 	public boolean isMaleCheckboxChesked() {
-		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+		throw new UnsupportedOperationException("This method isn't implement for ios LoginPage");
 	}
 
 	@Override
-	public boolean isSwitchSelected() {
-		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+	public boolean isPrivacyPolicyCheckboxChecked() {
+		throw new UnsupportedOperationException("This method isn't implement for ios LoginPage");
 	}
 
 	@Override
 	public boolean isItemByTextPresent(String text) {
-		throw new UnsupportedOperationException("This method isn't implemented for ios LoginPage");
+		throw new UnsupportedOperationException("This method isn't implement for ios LoginPage");
 	}
 
 }

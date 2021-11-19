@@ -94,24 +94,21 @@ public class LoginPage extends LoginPageBase implements IMobileUtils {
     }
 
     @Override
-    public boolean isMalePresent() {
-        return maleRadioBtn.isElementPresent();
+    public boolean isSexPresent(String sex) {
+        if (sex == "male"){
+            return maleRadioBtn.isElementPresent();
+        }
+        else return femaleRadioBtn.isElementPresent();
     }
 
     @Override
-    public boolean isFemalePresent() {
-        return femaleRadioBtn.isElementPresent();
-    }
-
-    @Override
-    public boolean isMaleChecked() {
-        return maleRadioBtn.isChecked();
-    }
-
-    @Override
-    public boolean isFemaleChecked() {
+    public boolean isSexChecked(String sex) {
+        if (sex == "male"){
+            return maleRadioBtn.isChecked();
+        }
         return femaleRadioBtn.isChecked();
     }
+
 
     @Override
     public boolean isMaleCheckboxChesked() {
@@ -119,7 +116,7 @@ public class LoginPage extends LoginPageBase implements IMobileUtils {
     }
 
     @Override
-    public boolean isSwitchSelected() {
+    public boolean isPrivacyPolicyCheckboxChecked() {
         throw new UnsupportedOperationException("This method isn't implemented for android LoginPage");
     }
 

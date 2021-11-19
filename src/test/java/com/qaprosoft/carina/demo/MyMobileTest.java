@@ -29,24 +29,23 @@ public class MyMobileTest implements IAbstractTest, IMobileUtils {
         //Step 2
         Assert.assertTrue(loginPage.isNamePresent(), "Name field isn't present");
         Assert.assertTrue(loginPage.isPasswordPresent(), "Password field isn't present");
-        Assert.assertTrue(loginPage.isMalePresent(), "Male checkbox isn't present");
-        Assert.assertTrue(loginPage.isFemalePresent(), "Female checkbox isn't present");
-        Assert.assertTrue(loginPage.isMaleChecked(), "Female checkbox is checked");
-        Assert.assertTrue(loginPage.isFemaleChecked(), "Female checkbox isn't checked");
+        Assert.assertTrue(loginPage.isSexPresent("Male"), "Male checkbox isn't present");
+        Assert.assertTrue(loginPage.isSexPresent("Female"), "Female checkbox isn't present");
+        Assert.assertFalse(loginPage.isSexChecked("Male"), "Female checkbox is checked");
+        Assert.assertFalse(loginPage.isSexChecked("Female"), "Female checkbox isn't checked");
         //Step 3
         loginPage.typeName(username);
         loginPage.typePassword(password);
-        Assert.assertTrue(loginPage.isItemByTextPresent(username),"The field Name is not typed");
-        Assert.assertTrue(loginPage.isItemByTextPresent(password),"The field Password is not typed");
+        Assert.assertTrue(loginPage.isItemByTextPresent(username),"The field Name is not checked");
+        Assert.assertTrue(loginPage.isItemByTextPresent(password),"The field Password is not checked");
         //Step 4
         loginPage.selectMaleSex();
         Assert.assertTrue(loginPage.isMaleCheckboxChesked(),"Male cheskbox is not typed");
         //Step 5
         loginPage.checkPrivacyPolicyCheckbox();
-        Assert.assertTrue(loginPage.isSwitchSelected(),"Privacy Policy switch not selected");
+        Assert.assertTrue(loginPage.isPrivacyPolicyCheckboxChecked(),"Privacy Policy switch not selected");
         //Step 6
         CarinaDescriptionPageBase carinaDescriptionPage = loginPage.clickLoginBtn();
-        Assert.assertFalse(loginPage.isLoginBtnActive(), "Login button is active when it should be disabled");
         WebViewPageBase webViewPage = initPage(getDriver(), WebViewPage.class);
         Assert.assertTrue(webViewPage.isPageOpened(), "Web View Page page isn't opened");
 
