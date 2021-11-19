@@ -4,10 +4,7 @@ package com.qaprosoft.carina.demo;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
-import com.qaprosoft.carina.demo.mobile.gui.pages.android.WebViewPage;
-import com.qaprosoft.carina.demo.mobile.gui.pages.common.CarinaDescriptionPageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.LoginPageBase;
-import com.qaprosoft.carina.demo.mobile.gui.pages.common.WebViewPageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.WelcomePageBase;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -30,10 +27,9 @@ public class MyMobileTest implements IAbstractTest, IMobileUtils {
         loginPage.typePassword(password);
         //Step 3
         loginPage.selectMaleSex();
+        //Expected result: Sign Up btn isn't active
+        Assert.assertFalse(loginPage.isLoginBtnActive(),"");
 
-
-//        Expected result:
-//        Sign Up btn isn't active
     }
 
 }
