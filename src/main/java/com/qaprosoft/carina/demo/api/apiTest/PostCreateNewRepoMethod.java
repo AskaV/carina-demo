@@ -22,7 +22,7 @@ public class PostCreateNewRepoMethod extends AbstractApiMethodV2 {
     public PostCreateNewRepoMethod() {
         super("github/_create_new_repo/rq.json", "github/_create_new_repo/rs.json");
         replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
-        request.header("Authorization", "Bearer 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");
+        request.header("Authorization", "Bearer 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");
     }
 
 

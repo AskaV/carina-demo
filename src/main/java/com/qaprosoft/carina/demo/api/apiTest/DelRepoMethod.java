@@ -22,7 +22,7 @@ public class DelRepoMethod extends AbstractApiMethodV2 {
     public DelRepoMethod() {
         super("github/_del_repo/rq.json", null);
         replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
-        request.header("Authorization", "Bearer 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");
+        request.header("Authorization", "Bearer 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");
     }
 
 }

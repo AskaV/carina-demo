@@ -22,7 +22,7 @@ public class PatchEditRepoNameMethod extends AbstractApiMethodV2 {
     public PatchEditRepoNameMethod() {
         super("github/_edit_repo_name/rq.json", "github/_edit_repo_name/rs.json");
         replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
-        request.header("Authorization", "Bearer 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");
+        request.header("Authorization", "Bearer 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");
     }
 
 

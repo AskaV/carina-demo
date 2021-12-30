@@ -22,7 +22,7 @@ public class PatchIssueMethod extends AbstractApiMethodV2 {
     public PatchIssueMethod() {
         super("github/_patch_issue/rq.json", "github/_patch_issue/rs.json");
         replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
-        request.header("Authorization", "Bearer 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");
+        request.header("Authorization", "Bearer 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");
     }
 
 }

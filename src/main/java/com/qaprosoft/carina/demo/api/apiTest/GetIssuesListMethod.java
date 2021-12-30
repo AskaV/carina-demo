@@ -22,6 +22,6 @@ public class GetIssuesListMethod extends AbstractApiMethodV2 {
     public GetIssuesListMethod() {
         super(null, "github/_get_issues_list/rs.json");
         replaceUrlPlaceholder("base_url", Configuration.getEnvArg("api_url"));
-        request.header("Authorization", "Bearer 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");
+        request.header("Authorization", "Bearer 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");
     }
 }
