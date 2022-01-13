@@ -16,15 +16,13 @@
 package com.qaprosoft.carina.demo.gui.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractUIObject;
-import com.qaprosoft.carina.demo.gui.pages.CompareModelsPage;
-import com.qaprosoft.carina.demo.gui.pages.HomePage;
-import com.qaprosoft.carina.demo.gui.pages.NewsPage;
-import org.openqa.selenium.SearchContext;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.PageOpeningStrategy;
+import com.qaprosoft.carina.core.gui.AbstractPage;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class HeaderMenu extends AbstractUIObject {
+public class HeaderMenu extends AbstractPage {
     @FindBy(id = "login-active")
     private ExtendedWebElement loginElement;
 
@@ -34,17 +32,37 @@ public class HeaderMenu extends AbstractUIObject {
     @FindBy(id = "upass")
     private ExtendedWebElement passwordCase;
 
-    public HeaderMenu(WebDriver driver, SearchContext searchContext) {
-        super(driver, searchContext);
+    @FindBy(id = "nick-submit")
+    private ExtendedWebElement logInBtn;
+
+    public HeaderMenu(WebDriver driver) {
+        super(driver);
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
     }
 
-    public void openLoginMenu(){
+    public HeaderMenu openLoginMenu(){
         loginElement.click();
+        return new HeaderMenu(driver);
     }
-    public void setMailCase(){
-        mailCase.click();
+    public HeaderMenu setMailCase(String setMail){
+        mailCase.type(setMail);
+        return new HeaderMenu(driver);
     }
-    public void setPasswordCase(){
-        passwordCase.click();
+    public HeaderMenu setPasswordCase(String setPass){
+        passwordCase.type(setPass);
+        return new HeaderMenu(driver);
+    }
+
+    public HeaderMenu clickLoginBtn(){
+        logInBtn.click();
+        return new HeaderMenu(driver);
+    }
+
+    public HeaderMenu autorization(String setMail, String setPass){
+        openLoginMenu();
+        setMailCase(setMail);
+        setPasswordCase(setPass);
+        logInBtn.click();
+        return new HeaderMenu(driver);
     }
 }

@@ -34,7 +34,10 @@ public class NewsPage extends AbstractPage {
     
     @FindBy(xpath="//div[@class='news-item']")
     private List<NewsItem> news;
-    
+
+    @FindBy(xpath="//*[@id=\"news\"]/div/div[1]/a")
+    public ExtendedWebElement title1;
+
     public NewsPage(WebDriver driver) {
         super(driver);
         setPageURL("/news.php3");
@@ -44,6 +47,11 @@ public class NewsPage extends AbstractPage {
         searchTextField.type(q);
         searchButton.click();
         return news;
+    }
+
+    public ArticlePage openFirstArticleFromNewsPage() {
+        title1.click();
+        return new ArticlePage(getDriver());
     }
     
 }

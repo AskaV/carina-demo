@@ -19,10 +19,8 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.core.foundation.utils.tag.Priority;
 import com.qaprosoft.carina.core.foundation.utils.tag.TestPriority;
-import com.qaprosoft.carina.demo.gui.components.FooterMenu;
+import com.qaprosoft.carina.demo.gui.components.HeaderMenu;
 import com.qaprosoft.carina.demo.gui.components.NewsItem;
-import com.qaprosoft.carina.demo.gui.components.compare.ModelSpecs;
-import com.qaprosoft.carina.demo.gui.components.compare.ModelSpecs.SpecType;
 import com.qaprosoft.carina.demo.gui.pages.*;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import org.apache.commons.collections.CollectionUtils;
@@ -33,12 +31,15 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-/**
- * This sample shows how create Web test.
- *
- * @author qpsdemo
- */
+
+
 public class WebTest implements IAbstractTest {
+
+    private static final String LOGIN = "yelmarortu@vusra.com";
+    private static final String PASS = "yelmarortu@vusra.com";
+    private static final String TEST_ARTICAL_STRING = "vivo Y75 5G's full specs leak, Dimensity 700 SoC and 50MP camera in tow";
+
+
     @Test()
     @MethodOwner(owner = "qpsdemo")
     @TestPriority(Priority.P3)
@@ -50,9 +51,23 @@ public class WebTest implements IAbstractTest {
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
         
         // #2 login with LoginService
-        // #3 open News page from footer menu -> News page is opened
-        // #4 open first article -> The article page is opened
+        HeaderMenu headerMenu = new HeaderMenu(getDriver());
+        headerMenu.autorization(LOGIN,PASS);
 
+        // #3 open News page from footer menu -> News page is opened
+        NewsPage newsPage = homePage.getFooterMenu().openNewsPage();
+        Assert.assertTrue(newsPage.isPageOpened(), "News page is not opened!");
+
+        // #4 open first article -> The article page is opened
+        ArticlePage articlePage = newsPage.openFirstArticleFromNewsPage();
+
+        NewsItem newsItem = new NewsItem(getDriver());
+
+        // Article name from News page and on the article page the same
+        String comparedString = newsItem.getPageArtName();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(comparedString, TEST_ARTICAL_STRING);
+        softAssert.assertAll();
     }
 
 
@@ -67,7 +82,8 @@ public class WebTest implements IAbstractTest {
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
 
         // #2 login with LoginService
-
+        HeaderMenu headerMenu = new HeaderMenu(getDriver());
+        headerMenu.autorization(LOGIN,PASS);
 
         // #3 open News page from footer menu -> News page is opened
         NewsPage newsPage = homePage.getFooterMenu().openNewsPage();
@@ -83,7 +99,6 @@ public class WebTest implements IAbstractTest {
             softAssert.assertTrue(StringUtils.containsIgnoreCase(n.readTitle(), searchQ),
                     "Invalid search results for " + n.readTitle());
         }
-
         softAssert.assertAll();
     }
 
