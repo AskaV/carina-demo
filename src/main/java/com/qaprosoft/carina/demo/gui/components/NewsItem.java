@@ -45,7 +45,7 @@ public class NewsItem extends AbstractUIObject {
         return new HeaderMenu(driver);
     }
 
-    public String getPageArtName(){
+    public String getTitleFromNewsPage(){
         return pageArticalName.getText();
     }
 

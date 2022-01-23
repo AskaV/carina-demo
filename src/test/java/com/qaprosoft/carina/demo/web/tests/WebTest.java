@@ -37,11 +37,10 @@ public class WebTest implements IAbstractTest {
 
     private static final String LOGIN = "yelmarortu@vusra.com";
     private static final String PASS = "yelmarortu@vusra.com";
-    private static final String TEST_ARTICAL_STRING = "vivo Y75 5G's full specs leak, Dimensity 700 SoC and 50MP camera in tow";
 
 
     @Test()
-    @MethodOwner(owner = "qpsdemo")
+    @MethodOwner(owner = "Avoznyuk")
     @TestPriority(Priority.P3)
     @TestLabel(name = "feature", value = {"web", "regression"})
     public void testModelSpecs() {
@@ -60,20 +59,19 @@ public class WebTest implements IAbstractTest {
 
         // #4 open first article -> The article page is opened
         ArticlePage articlePage = newsPage.openFirstArticleFromNewsPage();
-
         NewsItem newsItem = new NewsItem(getDriver());
 
         // Article name from News page and on the article page the same
-        String comparedString = newsItem.getPageArtName();
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(comparedString, TEST_ARTICAL_STRING);
-        softAssert.assertAll();
+        String comparedString = newsItem.getTitleFromNewsPage();
+        String titleNews = "vivo Y75 5G's full specs leak, Dimensity 700 SoC and 50MP camera in tow";
+        Assert.assertEquals(comparedString, titleNews, "Articles are not the same");
+
     }
 
 
 
     @Test()
-    @MethodOwner(owner = "qpsdemo")
+    @MethodOwner(owner = "Avoznyuk")
     @TestLabel(name = "feature", value = {"web", "acceptance"})
     public void testNewsSearch() {
         // #1 open site
